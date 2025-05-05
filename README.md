@@ -1,29 +1,10 @@
-# Wisdom Loop: AI Escalation Knowledge Service
+# Frontdesk Engineering Test:
+Human-in-the-Loop AI Supervisor
 
 A human-in-the-loop system for AI agents that allows them to escalate questions to human supervisors when they don't have sufficient knowledge to answer that also learns from it.
 
-## Project Overview
-
-This system enables an AI receptionist for a salon to handle customer inquiries and, when it encounters questions it cannot answer, escalate them to a human supervisor. The supervisor can provide answers through a web interface, which are then stored in a knowledge base for future use.
-
-**_LiveKit's JS SDK is still in beta & has alot of issues as they have mentioned in their documentation. This project is a proof of concept and not production ready yet._**
-
-### Key Features
-
-- **LiveKit-powered AI Agent**: Voice-based AI receptionist with natural language processing capabilities
-- **Knowledge Base Management**: MongoDB-based storage with vector search for semantic matching
-- **Human-in-the-Loop System**: Seamless escalation to human supervisors for unknown queries
-- **Supervisor Dashboard**: React-based web interface for handling escalated questions
-- **Automatic Learning**: Knowledge base that grows and improves with each supervisor interaction
-
-## System Architecture
-
-The project consists of three main components:
-
-1. **Backend Server**: Handles API requests, database interactions, and knowledge base management
-2. **Agent Server**: Processes voice interactions using LiveKit for real-time communication
-3. **Supervisor Client**: A React dashboard for supervisors to view and respond to escalated questions
-4. **Voice Assistant Frontend**: Uses the LiveKit voice assistant frontend example repository for handling voice interactions
+### Goal
+Build the first version of a human-in-the-loop system for our AI agents. If the AI doesn’t know the answer, it should escalate to a human supervisor, follow up with the original customer, and update its knowledge base automatically.
 
 ### Technologies Used
 
@@ -50,90 +31,6 @@ The project consists of three main components:
 - OpenAI API key
 - LiveKit account and API credentials
 - Deepgram API key (used by LiveKit for speech-to-text)
-
-### Installation
-
-1. Clone the repository:
-
-```
-git clone https://github.com/anorangefalcon/WisdomLoop.git
-cd WisdomLoop
-```
-
-2. Install dependencies:
-
-```
-pnpm install
-cd supervisor-client
-pnpm install
-cd ..
-```
-
-3. Create a `.env` file based on `.env.example`:
-
-```
-PORT=7777
-SERVER_URL=http://localhost:7777
-
-LIVEKIT_URL=your-livekit-url
-LIVEKIT_API_KEY=your-livekit-api-key
-LIVEKIT_API_SECRET=your-livekit-api-secret
-
-DEEPGRAM_API_KEY=your-deepgram-key
-OPENAI_API_KEY=your-openai-api-key
-
-MONGODB_URI=your-mongodb-connection-string
-```
-
-4. Set up the LiveKit voice assistant frontend:
-
-```
-git clone https://github.com/livekit-examples/voice-assistant-frontend.git
-cd voice-assistant-frontend
-# Follow setup instructions in the frontend repository
-```
-
-### Running the Application
-
-1. Start the backend server:
-
-```
-pnpm run dev
-```
-
-2. Start the AI agent:
-
-```
-pnpm run dev-agent
-```
-
-3. Start the supervisor client:
-
-```
-cd supervisor-client
-pnpm run dev
-```
-
-## Development Approach
-
-This project was developed using a clean, PR-based approach to make the implementation process transparent and easy to understand. Each major feature was built in separate pull requests, allowing reviewers to clearly see:
-
-1. The thought process behind design decisions
-2. Progressive implementation of components
-3. How each feature integrates with the overall system
-4. Incremental improvements and fixes
-
-This structured approach also makes it easier to understand the development journey from initial setup to complete implementation of the human-in-the-loop system.
-
-## System Flow
-
-1. **Customer Interaction**: A customer calls and speaks with the AI receptionist (JARVIS)
-2. **Knowledge Lookup**: The AI searches its knowledge base for relevant information
-3. **Escalation**: If no answer is found, the AI tells the customer it will check with a supervisor
-4. **Supervisor Dashboard**: The question appears in the Supervisor Dashboard under "Unanswered" tab
-5. **Human Response**: A supervisor provides an answer through the dashboard
-6. **Knowledge Update**: The answer is stored in the knowledge base with vector embeddings
-7. **Agent Learning**: The AI can now answer similar questions in the future
 
 ## System Components
 
